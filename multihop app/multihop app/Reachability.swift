@@ -36,8 +36,6 @@ open class Reachability{
     }
     
     
-    class func IPaddress() -> Int32 {
-        return IPPROTO_IP
-    }
+  
 
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="multihop_app" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="402" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="Hdm-5K-aod">
+                        <rect key="frame" x="20" y="15" width="36" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="Zj2-Tt-hDf"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="aiJ-UM-Bfl"/>
+                        </constraints>
+                    </imageView>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-ej-kwn">
+                        <rect key="frame" x="345" y="15" width="51" height="31"/>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39S-n0-CcB">
+                        <rect key="frame" x="74" y="23" width="74" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Hdm-5K-aod" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="67M-IR-jr3"/>
+                    <constraint firstItem="Hdm-5K-aod" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="Ldc-iz-pVl"/>
+                    <constraint firstItem="39S-n0-CcB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="Sh9-Sf-CSp"/>
+                    <constraint firstItem="Jbz-ej-kwn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="TcH-Cf-cz4"/>
+                    <constraint firstAttribute="trailing" secondItem="Jbz-ej-kwn" secondAttribute="trailing" constant="8" id="gwR-cW-rLC"/>
+                    <constraint firstItem="39S-n0-CcB" firstAttribute="leading" secondItem="Hdm-5K-aod" secondAttribute="trailing" constant="18" id="spF-Vq-wtl"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="mainImageView" destination="Hdm-5K-aod" id="jjV-ix-rzw"/>
+                <outlet property="mainLabel" destination="39S-n0-CcB" id="Jqo-S3-Os2"/>
+                <outlet property="mainSwitch" destination="Jbz-ej-kwn" id="Ews-sO-RAu"/>
+            </connections>
+            <point key="canvasLocation" x="75" y="68"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Bluetooth" width="34" height="34"/>
+    </resources>
+</document>

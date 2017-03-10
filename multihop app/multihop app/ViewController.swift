@@ -8,12 +8,12 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
-    @IBOutlet var logo: UIImageView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.logo.image = UIImage(named: "logo")
     }
 
     override func didReceiveMemoryWarning() {
