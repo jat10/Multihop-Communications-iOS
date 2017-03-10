@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0563C2A81E72995E00957758 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563C2A71E72995E00957758 /* Reachability.swift */; };
+		0563C2AC1E72A15C00957758 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563C2AB1E72A15C00957758 /* SecondViewController.swift */; };
 		05C3EE211E7083160010EA1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3EE201E7083160010EA1C /* AppDelegate.swift */; };
 		05C3EE231E7083160010EA1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3EE221E7083160010EA1C /* ViewController.swift */; };
 		05C3EE261E7083160010EA1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C3EE241E7083160010EA1C /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0563C2A71E72995E00957758 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		0563C2AB1E72A15C00957758 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		05C3EE1D1E7083160010EA1C /* multihop app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "multihop app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C3EE201E7083160010EA1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05C3EE221E7083160010EA1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +83,12 @@
 			children = (
 				05C3EE201E7083160010EA1C /* AppDelegate.swift */,
 				05C3EE221E7083160010EA1C /* ViewController.swift */,
+				0563C2AB1E72A15C00957758 /* SecondViewController.swift */,
 				05C3EE241E7083160010EA1C /* Main.storyboard */,
 				05C3EE271E7083160010EA1C /* Assets.xcassets */,
 				05C3EE291E7083160010EA1C /* LaunchScreen.storyboard */,
 				05C3EE2C1E7083160010EA1C /* Info.plist */,
+				0563C2A71E72995E00957758 /* Reachability.swift */,
 			);
 			path = "multihop app";
 			sourceTree = "<group>";
@@ -200,8 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0563C2AC1E72A15C00957758 /* SecondViewController.swift in Sources */,
 				05C3EE231E7083160010EA1C /* ViewController.swift in Sources */,
 				05C3EE211E7083160010EA1C /* AppDelegate.swift in Sources */,
+				0563C2A81E72995E00957758 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +417,7 @@
 				05C3EE3C1E7083160010EA1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05C3EE3D1E7083160010EA1C /* Build configuration list for PBXNativeTarget "multihop appTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +426,7 @@
 				05C3EE3F1E7083160010EA1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
