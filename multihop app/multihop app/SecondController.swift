@@ -17,16 +17,25 @@ class SecondController: UIViewController, UITableViewDelegate, UITableViewDataSo
     struct cellData {
         let cell : Int!
         let text : String!
-        let image: UIImage!
+        let image: UIImage?
+        let index : Int!
     }
     
 
     var arrayOfCellData = [cellData]()
     
+   
+    
     override func viewDidLoad() {
-        arrayOfCellData = [cellData(cell:1, text:"Internet",image: #imageLiteral(resourceName: "logo-btn")),
-                           cellData(cell:1, text:"Bluetooth",image: #imageLiteral(resourceName: "Bluetooth")),
-                           cellData(cell:2, text:"Version",image: #imageLiteral(resourceName: "Bluetooth"))]
+        arrayOfCellData = [
+            cellData(cell:1, text:"Internet",image: #imageLiteral(resourceName: "logo-btn"), index: 0),
+            cellData(cell:1, text:"Bluetooth",image: #imageLiteral(resourceName: "Bluetooth"), index: 0),
+            cellData(cell:2, text:"Model",image: nil, index: 1),
+            cellData(cell:2, text:"Version",image: nil, index: 2),
+            cellData(cell:2, text:"Network Code",image: nil, index: 3),
+            cellData(cell:2, text:"Carrier",image: nil, index: 4),
+            cellData(cell:2, text:"Iso Country Code",image: nil, index: 5)
+        ]
         
 
         
@@ -54,9 +63,24 @@ class SecondController: UIViewController, UITableViewDelegate, UITableViewDataSo
             
         } else if arrayOfCellData[indexPath.row].cell == 2 {
             let cell = Bundle.main.loadNibNamed("infoTableViewCell", owner: self, options: nil)?.first as! infoTableViewCell
-            let x = MacAddress()
-                cell.mainLabel.text = arrayOfCellData[indexPath.row].text
-                cell.infoLabel.text = x.getVersion()?.description
+            let info = phoneInfo()
+            
+            cell.mainLabel.text = arrayOfCellData[indexPath.row].text
+            
+            switch arrayOfCellData[indexPath.row].index {
+            case 1:
+                cell.infoLabel.text = info.getModel()
+            case 2:
+                cell.infoLabel.text = info.getVersion()
+            case 3:
+                cell.infoLabel.text = info.getNetworkCode()
+            case 4:
+                cell.infoLabel.text = info.getCarrier()
+            case 5:
+                cell.infoLabel.text = info.getIsoCountryCode()
+            default:
+                 cell.infoLabel.text = "No Data"
+            }
             
             return cell
         } else {

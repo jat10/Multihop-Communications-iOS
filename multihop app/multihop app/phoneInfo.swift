@@ -10,34 +10,37 @@ import Foundation
 import UIKit
 import CoreBluetooth
 import CoreTelephony
+import Contacts
 
 
-open class MacAddress {
+open class phoneInfo {
     
     let device = UIDevice()
+    
+    let contact = CNMutableContact()
     
     func getModel() -> String {
         return device.model
     }
     
-    func getVersion() -> Bool? {
-        let c = CTTelephonyNetworkInfo().subscriberCellularProvider?.accessibilityActivate()
-        return c
+    func getVersion() -> String {
+        return device.systemVersion
     }
     
+    func getNetworkCode() -> String? {
+        let networkCode = CTTelephonyNetworkInfo().subscriberCellularProvider?.mobileNetworkCode
+        return networkCode
+    }
     
-//    func getVersion() -> String? {
-//        return device.systemVersion
-//    }
     
     func getCarrier() -> String?{
         let carrier = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName
         return carrier
     }
     
-    
-    
-  
-
+    func getIsoCountryCode() -> String? {
+        let iso = CTTelephonyNetworkInfo().subscriberCellularProvider?.isoCountryCode
+        return iso
+    }
     
 }

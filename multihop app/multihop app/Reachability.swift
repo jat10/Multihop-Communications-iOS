@@ -8,6 +8,7 @@
 
 import Foundation
 import SystemConfiguration
+import SystemConfiguration.SCNetwork
 
 open class Reachability{
 
@@ -36,6 +37,5 @@ open class Reachability{
     }
     
     
-  
 
 }
