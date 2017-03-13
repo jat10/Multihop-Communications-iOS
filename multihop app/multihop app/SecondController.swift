@@ -79,7 +79,7 @@ class SecondController: UIViewController, UITableViewDelegate, UITableViewDataSo
             case 5:
                 cell.infoLabel.text = info.getIsoCountryCode()
             default:
-                 cell.infoLabel.text = "No Data"
+                 cell.infoLabel.text = "No Data Found"
             }
             
             return cell
