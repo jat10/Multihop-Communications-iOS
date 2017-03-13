@@ -23,6 +23,7 @@
 		05C3EE281E7083160010EA1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C3EE271E7083160010EA1C /* Assets.xcassets */; };
 		05C3EE2B1E7083160010EA1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C3EE291E7083160010EA1C /* LaunchScreen.storyboard */; };
 		05C3EE361E7083160010EA1C /* multihop_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3EE351E7083160010EA1C /* multihop_appTests.swift */; };
+		05D2927E1E77480D0052F43D /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D2927D1E77480D0052F43D /* Bluetooth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		05C3EE311E7083160010EA1C /* multihop appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "multihop appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C3EE351E7083160010EA1C /* multihop_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multihop_appTests.swift; sourceTree = "<group>"; };
 		05C3EE371E7083160010EA1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05D2927D1E77480D0052F43D /* Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				051DE5311E7344C10027E795 /* phoneInfo.swift */,
 				0563C2A71E72995E00957758 /* Reachability.swift */,
+				05D2927D1E77480D0052F43D /* Bluetooth.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				051DE5261E7310620027E795 /* TableViewCell.swift in Sources */,
 				051DE5351E7347770027E795 /* infoTableViewCell.swift in Sources */,
 				05C3EE231E7083160010EA1C /* ViewController.swift in Sources */,
+				05D2927E1E77480D0052F43D /* Bluetooth.swift in Sources */,
 				051DE5291E732BEB0027E795 /* SecondController.swift in Sources */,
 				05C3EE211E7083160010EA1C /* AppDelegate.swift in Sources */,
 				0563C2A81E72995E00957758 /* Reachability.swift in Sources */,
