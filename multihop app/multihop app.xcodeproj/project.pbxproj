@@ -15,7 +15,7 @@
 		051DE5361E7347770027E795 /* infoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051DE5341E7347770027E795 /* infoTableViewCell.xib */; };
 		051DE5391E7359F90027E795 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051DE5381E7359F90027E795 /* Contacts.framework */; };
 		051DE53B1E735A050027E795 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051DE53A1E735A050027E795 /* CoreBluetooth.framework */; };
-		0542A3841E737A7200C78233 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0542A3831E737A7200C78233 /* LocationViewController.swift */; };
+		055777121E77580700FE45B2 /* BluetoothTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055777111E77580700FE45B2 /* BluetoothTableViewController.swift */; };
 		0563C2A81E72995E00957758 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0563C2A71E72995E00957758 /* Reachability.swift */; };
 		05C3EE211E7083160010EA1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3EE201E7083160010EA1C /* AppDelegate.swift */; };
 		05C3EE231E7083160010EA1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3EE221E7083160010EA1C /* ViewController.swift */; };
@@ -23,7 +23,6 @@
 		05C3EE281E7083160010EA1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05C3EE271E7083160010EA1C /* Assets.xcassets */; };
 		05C3EE2B1E7083160010EA1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C3EE291E7083160010EA1C /* LaunchScreen.storyboard */; };
 		05C3EE361E7083160010EA1C /* multihop_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C3EE351E7083160010EA1C /* multihop_appTests.swift */; };
-		05D2927E1E77480D0052F43D /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D2927D1E77480D0052F43D /* Bluetooth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +44,7 @@
 		051DE5341E7347770027E795 /* infoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = infoTableViewCell.xib; sourceTree = "<group>"; };
 		051DE5381E7359F90027E795 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		051DE53A1E735A050027E795 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		0542A3831E737A7200C78233 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		055777111E77580700FE45B2 /* BluetoothTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothTableViewController.swift; sourceTree = "<group>"; };
 		0563C2A71E72995E00957758 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		05C3EE1D1E7083160010EA1C /* multihop app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "multihop app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C3EE201E7083160010EA1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +56,6 @@
 		05C3EE311E7083160010EA1C /* multihop appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "multihop appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C3EE351E7083160010EA1C /* multihop_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = multihop_appTests.swift; sourceTree = "<group>"; };
 		05C3EE371E7083160010EA1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05D2927D1E77480D0052F43D /* Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +103,6 @@
 			children = (
 				051DE5311E7344C10027E795 /* phoneInfo.swift */,
 				0563C2A71E72995E00957758 /* Reachability.swift */,
-				05D2927D1E77480D0052F43D /* Bluetooth.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -137,7 +134,7 @@
 				05C3EE201E7083160010EA1C /* AppDelegate.swift */,
 				05C3EE221E7083160010EA1C /* ViewController.swift */,
 				051DE5281E732BEB0027E795 /* SecondController.swift */,
-				0542A3831E737A7200C78233 /* LocationViewController.swift */,
+				055777111E77580700FE45B2 /* BluetoothTableViewController.swift */,
 				05C3EE241E7083160010EA1C /* Main.storyboard */,
 				05C3EE271E7083160010EA1C /* Assets.xcassets */,
 				05C3EE291E7083160010EA1C /* LaunchScreen.storyboard */,
@@ -265,11 +262,10 @@
 				051DE5261E7310620027E795 /* TableViewCell.swift in Sources */,
 				051DE5351E7347770027E795 /* infoTableViewCell.swift in Sources */,
 				05C3EE231E7083160010EA1C /* ViewController.swift in Sources */,
-				05D2927E1E77480D0052F43D /* Bluetooth.swift in Sources */,
+				055777121E77580700FE45B2 /* BluetoothTableViewController.swift in Sources */,
 				051DE5291E732BEB0027E795 /* SecondController.swift in Sources */,
 				05C3EE211E7083160010EA1C /* AppDelegate.swift in Sources */,
 				0563C2A81E72995E00957758 /* Reachability.swift in Sources */,
-				0542A3841E737A7200C78233 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Jad-Tarabay.multihop-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -427,6 +424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Jad-Tarabay.multihop-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

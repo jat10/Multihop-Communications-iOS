@@ -7,45 +7,164 @@
 //
 
 import UIKit
+import CoreBluetooth
 
-class BluetoothTableViewController: UITableViewController {
+struct Peripheral
+{
+    var peripheral: CBPeripheral
+    var name: String?
+    var UUID: String
+    var RSSI: String
+    var connectable = "No"
+    
+    init(peripheral: CBPeripheral, RSSI: String, advertisementDictionary: NSDictionary)
+    {
+        self.peripheral = peripheral
+        name = peripheral.name ?? "No name."
+        UUID = peripheral.identifier.uuidString
+        self.RSSI = RSSI
+        if let isConnectable = advertisementDictionary[CBAdvertisementDataIsConnectable] as? NSNumber
+        {
+            connectable = (isConnectable.boolValue) ? "Yes" : "No"
+        }
+    }
+}
 
-    override func viewDidLoad() {
+struct cellData {
+    let cell : Int!
+    let text : String!
+    let image: UIImage?
+    let index : Int!
+}
+
+
+class BluetoothTableViewController: UITableViewController, CBCentralManagerDelegate {
+
+    var manager: CBCentralManager!
+    var isBluetoothEnabled = false
+    var visiblePeripheralUUIDs = NSMutableOrderedSet()
+    var visiblePeripherals = [String: Peripheral]()
+    var scanTimer: Timer?
+    var connectionAttemptTimer: Timer?
+    var connectedPeripheral: CBPeripheral?
+    
+    var arrayOfCellData = [cellData]()
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        manager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey: true])
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        manager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey: true])
+    }
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        arrayOfCellData = [
+            cellData(cell:1, text:"Internet",image: #imageLiteral(resourceName: "logo-btn"), index: 0),
+            cellData(cell:1, text:"Bluetooth",image: #imageLiteral(resourceName: "Bluetooth"), index: 0)
+        ]
+       
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if isBluetoothEnabled
+        {
+            if let peripheral = connectedPeripheral
+            {
+                manager.cancelPeripheralConnection(peripheral)
+            }
+        }
+    }
+    
+    func startScanning()
+    {
+        print("Started scanning.")
+        visiblePeripheralUUIDs.removeAllObjects()
+        visiblePeripherals.removeAll(keepingCapacity: true)
+        tableView.reloadData()
+        manager.scanForPeripherals(withServices: nil, options: nil)
+        scanTimer = Timer.scheduledTimer(timeInterval: 40, target: self, selector: #selector(BluetoothTableViewController.stopScanning), userInfo: nil, repeats: false)
+    }
+    
+    func stopScanning()
+    {
+        print("Stopped scanning.")
+        print("Found \(visiblePeripherals.count) peripherals.")
+        manager.stopScan()
+        refreshControl?.endRefreshing()
+        scanTimer?.invalidate()
+    }
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager)
+    {
+        var printString: String
+        switch central.state
+        {
+        case .poweredOff:
+            printString = "Bluetooth hardware power off."
+            isBluetoothEnabled = false
+        case .poweredOn:
+            printString = "Bluetooth hardware power on."
+            isBluetoothEnabled = true
+            startScanning()
+        case .resetting:
+            printString = "Bluetooth hardware resetting."
+            isBluetoothEnabled = false
+        case .unauthorized:
+            printString = "Bluetooth hardware unauthorized."
+            isBluetoothEnabled = false
+        case .unsupported:
+            printString = "Bluetooth hardware not supported."
+            isBluetoothEnabled = false
+        case .unknown:
+            printString = "Bluetooth hardware state unknown."
+            isBluetoothEnabled = false
+        }
+        
+        print("State updated to: \(printString)")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (arrayOfCellData.count)
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
+        cell.mainImageView.image = arrayOfCellData[indexPath.row].image
+        cell.mainLabel.text = arrayOfCellData[indexPath.row].text
+        
+        if arrayOfCellData[indexPath.row].text == "Internet"{
+            if Reachability.isConnectedToNetwork() == true {
+                cell.mainSwitch.setOn(true, animated: false)
+            } else{
+                cell.mainSwitch.setOn(false, animated: false)
+            }
+        } else {
+            if isBluetoothEnabled == true{
+                 cell.mainSwitch.setOn(true, animated: false)
+            } else{
+                 cell.mainSwitch.setOn(false, animated: false)
+            }
+            
+        }
+        
+        
+        
         return cell
+
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

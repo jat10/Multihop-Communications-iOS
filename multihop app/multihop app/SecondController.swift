@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreBluetooth
+
 
 
 
 class SecondController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
     
     struct cellData {
         let cell : Int!
@@ -24,12 +25,18 @@ class SecondController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     var arrayOfCellData = [cellData]()
     
+    var manager: CBCentralManager!
+    var isBluetoothEnabled = false
+    var visiblePeripheralUUIDs = NSMutableOrderedSet()
+    var visiblePeripherals = [String: Peripheral]()
+    var scanTimer: Timer?
+    var connectionAttemptTimer: Timer?
+    var connectedPeripheral: CBPeripheral?
+    
    
     
     override func viewDidLoad() {
         arrayOfCellData = [
-            cellData(cell:1, text:"Internet",image: #imageLiteral(resourceName: "logo-btn"), index: 0),
-            cellData(cell:1, text:"Bluetooth",image: #imageLiteral(resourceName: "Bluetooth"), index: 0),
             cellData(cell:2, text:"Model",image: nil, index: 1),
             cellData(cell:2, text:"Version",image: nil, index: 2),
             cellData(cell:2, text:"Network Code",image: nil, index: 3),
@@ -48,20 +55,6 @@ class SecondController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        if arrayOfCellData[indexPath.row].cell == 1{
-            let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            cell.mainImageView.image = arrayOfCellData[indexPath.row].image
-            cell.mainLabel.text = arrayOfCellData[indexPath.row].text
-            
-            if Reachability.isConnectedToNetwork() == true {
-                cell.mainSwitch.setOn(true, animated: false)
-            } else{
-                cell.mainSwitch.setOn(false, animated: false)
-            }
-            
-            return cell
-            
-        } else if arrayOfCellData[indexPath.row].cell == 2 {
             let cell = Bundle.main.loadNibNamed("infoTableViewCell", owner: self, options: nil)?.first as! infoTableViewCell
             let info = phoneInfo()
             
@@ -83,12 +76,6 @@ class SecondController: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
             
             return cell
-        } else {
-         let cell = Bundle.main.loadNibNamed("TableViewCell", owner: self, options: nil)?.first as! TableViewCell
-            
-            return cell
-        
-        }
         
     }
     
